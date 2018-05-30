@@ -4,7 +4,7 @@ $out_dir = '../build';
 $aux_dir = $out_dir;
 $recorder = 1;
 
-@default_files = ('dissertation.tex');
+@default_files = ('conference_041818.tex');
 
 add_cus_dep('glo', 'gls', 0, 'run_makeglossaries');
 add_cus_dep('acn', 'acr', 0, 'run_makeglossaries');

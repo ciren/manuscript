@@ -9,28 +9,28 @@ author = "Joseph Thomas Bloggs"
 email = "jtbloggs@somewhere.co.za"
 
 -- Basic document title
-title = "A Very Long MSc Dissertation With a Long Title"
+title = "A Very Long Title that is a Long Title"
 
 -- The large title is for display on the cover page of the document
 -- This should match the content of `title`, however, it may be required
 -- to add some newline breaks to make sure the cover page title looks
 -- appealing. This is a multi-line string between the square bracket pair
 large_title = [[
-  A Very Long MSc Dissertation\\
+  A Very Long Title\\
   With a Long Title
 ]]
 
 -- Name of the institution
-institution = "University of Pretoria"
+institution = "Institution / University / or Similar"
 
 -- Name of the faculty
-faculty = "Faculty of Engineering, Built Environment and Information Technology"
+faculty = "Faculty of Doing Things"
 
 -- Name of the department
-department = "Department of Computer Science"
+department = "Department of department"
 
 -- Location of the institution
-location = "Pretoria, South Africa"
+location = "Place of things"
 
 -- The list of files to include for the abstract. This is usually a
 -- single file, but more can be specified, if needed.
@@ -43,11 +43,36 @@ abstract_includes =
 -- will be included verbatim. That is, the order of the list items
 -- does matter.
 main_includes =
-   { "content/t.tex"
-   , "content/x.tex"
+   {
    }
 
-appendix_includes = { "content/appendix.tex" }
+appendix_includes =
+   { "content/appendix.tex"
+   }
+
+glossary_includes =
+   { "content/glossary.tex"
+   , "content/acronyms.tex"
+   }
+
+-- These are the package options passed to biblatex.
+-- Any bibliography related options should be defined here. It should
+-- also be noted that the backend option has already been set to
+-- the package "biber".
+--
+-- biblatex is strictly the replacement for the normal bibtex process
+-- and you are encouraged to familiarize yourself with the way biblatex
+-- operates. It is largely unchanged from a usage perspective, but any
+-- customization will be done in a different way
+--
+-- The old classic bibtex styles (like 'plain') are still available using
+-- the biblatex-trad package. For example, the old plain is now 'trad-plain'
+bibliography_options = "style=numeric"
+
+-- List of bibliography files
+bibliography_includes =
+   { "content/bibliography.bib"
+   }
 
 degree = {
    msc = {
@@ -61,4 +86,16 @@ degree = {
    }
 }
 
-document = degree.msc
+article = {
+   ieee = {
+      mode = "conference",
+      paper = "letterpaper",
+      column = "twocolumn",
+      keywords = ""
+   },
+
+   llncs = {
+   }
+}
+
+document = article.ieee --degree.msc

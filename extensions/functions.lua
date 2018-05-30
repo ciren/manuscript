@@ -21,3 +21,11 @@ end
 function value(key)
    tex.sprint(key)
 end
+
+function bibliography_items()
+   for _, i in ipairs(bibliography_includes) do
+      if i then
+         tex.sprint("\\addbibresource{../" .. i .. "}")
+      end
+   end
+end
